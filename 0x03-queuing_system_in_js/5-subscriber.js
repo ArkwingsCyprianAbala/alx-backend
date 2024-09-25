@@ -1,7 +1,10 @@
 import redis from 'redis';
 import { promisify } from 'util';
 
-const client = redis.createClient();
+const client = redis.createClient({
+  host: '127.0.0.1', // Host address
+  port: 6379,        // Port number
+});
 
 client.on('connect', () => {
   console.log('Redis client connected to the server');
